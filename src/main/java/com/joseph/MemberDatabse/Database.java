@@ -1,6 +1,5 @@
-package com.joseph.MultiEcoute;
+package com.joseph.MemberDatabse;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface Database {

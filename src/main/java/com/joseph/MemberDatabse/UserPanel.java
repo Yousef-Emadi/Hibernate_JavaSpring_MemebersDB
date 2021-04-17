@@ -1,6 +1,5 @@
-package com.joseph.MultiEcoute;
+package com.joseph.MemberDatabse;
 
-import java.util.List;
 import java.util.Scanner;
 
 
