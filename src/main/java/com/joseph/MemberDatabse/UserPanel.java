@@ -9,15 +9,19 @@ public class UserPanel {
 
     //methods
     public userChoice userMenu() {
-        System.out.println("Please, select one of these actions");
+        System.out.println("\nPlease, select one of these actions");
+        System.out.println("  0. (Re)install database");
         System.out.println("  1. Add a new member");
         System.out.println("  2. Find a member");
         System.out.println("  3. Remove a member");
         System.out.println("  4. List members");
         System.out.println("  5. Backup database");
-        System.out.println("  0. Exit from menu");
+        System.out.println("  9. Exit from menu");
         int choiceNumber = input.nextInt();
         switch (choiceNumber) {
+            case 0 -> {
+                return userChoice.SETUP;
+            }
             case 1 -> {
                 return userChoice.ADD;
             }
@@ -33,18 +37,18 @@ public class UserPanel {
             case 5 -> {
                 return userChoice.BACKUP;
             }
-            case 0 -> {
+            case 9 -> {
                 return userChoice.EXIT;
             }
             default -> {
-                System.out.println("Please enter an valid option number including 0, 1, 2, 3, 4 and 5\n");
+                System.out.println("Please enter an valid option number including 0, 1, 2, 3, 4, 5 and 9\n");
                 return userChoice.NONE;
             }
         }
     }
 
     public String getFilePath() {
-        System.out.println("Please enter a full path including file name for new copy of database. Example: src\\main\\resources\\Database.txt");
+        System.out.println("Please enter a full path including file name. Default: src\\main\\resources\\Database.txt");
         String path = input.next();
         return path;
     }
@@ -61,8 +65,8 @@ public class UserPanel {
         System.out.print("Please enter member last name: ");
         String lname = input.nextLine();
 
-        Member member = new Member(id, fname, lname, "(438) 654-7898", fname + "." + lname + "@gmail.com", "2000-01-01", "6500 Forest Hill", 0);
-        return newClient;
+        Member member = new Member(id, fname, lname, "(438) 654-7898", fname + "@gmail.com", "2000-01-01", "6500 Forest Hill", 0);
+        return member;
     }
 
     public int getIdToSearch() {

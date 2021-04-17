@@ -5,20 +5,20 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.MemberList;
 import java.util.Scanner;
 
 
 
 public class ClientsList implements ClientDatabase {
 
-    private List<Member> clientList = new ArrayList<Member>();
+    private MemberList<Member> clientList = new ArrayList<Member>();
 
     public static final String DEFAULT_FILE_PATH = "src\\main\\resources\\Database.txt";
 
     @Override
     public boolean addNewClient(Member newClient) {
-        return clientList.add(newClient);
+        return clientList.addMember(newClient);
     }
 
 
@@ -42,7 +42,7 @@ public class ClientsList implements ClientDatabase {
 
     @Override
     public boolean removeClientFromList(Member client) {
-        return clientList.remove(client);
+        return clientList.removeMember(client);
     }
 
 
@@ -70,14 +70,14 @@ public class ClientsList implements ClientDatabase {
 
 
     @Override
-    public List<Member> retrieveDatabaseClientList() {
+    public MemberList<Member> retrieveDatabaseClientList() {
         try {
             File myObj = new File("src\\main\\resources\\Database.txt");
             Scanner myReader = new Scanner(myObj);
             System.out.println("\n-- Database interaction -- ");
 
             // create a temporary Arraylist to hold client objects will be created by output stream from file
-            List<Member> updateClientList = new ArrayList<Member>();
+            MemberList<Member> updateClientList = new ArrayList<Member>();
             while (myReader.hasNextLine()) {
 
                 // temporary Array from raw file data to create client objects
@@ -92,7 +92,7 @@ public class ClientsList implements ClientDatabase {
                 String gender = tempArray[5];
                 double balance = Double.parseDouble(tempArray[6]);
                 Member clientToMainList = new Member(id,fname,lname,phone,dob, gender, balance);
-                updateClientList.add(clientToMainList);
+                updateClientList.addMember(clientToMainList);
 
             }
             myReader.close();
@@ -106,7 +106,7 @@ public class ClientsList implements ClientDatabase {
     }
 
     @Override
-    public boolean writeListToDatabaseFile(String newfilePath, List<Member> clientList) {
+    public boolean writeListToDatabaseFile(String newfilePath, MemberList<Member> clientList) {
         for (Member client: clientList
              ) {
             writeIntoDatabase(client, newfilePath);

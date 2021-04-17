@@ -123,7 +123,7 @@ class BoatInputData {
                 field2 = Integer.parseInt(array1[1]);
                 field3 = Integer.parseInt(array1[2]);
                 Boat tempBoat = new Boat(field1, field2, field3);
-                boats.add(tempBoat);
+                boats.addMember(tempBoat);
 */
 
             }

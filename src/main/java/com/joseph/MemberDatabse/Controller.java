@@ -1,59 +1,79 @@
 package com.joseph.MemberDatabse;
 
+import java.io.File;
 import java.util.List;
 
 public class Controller {
 
     //new objects
-    UserPanel myUI = new UserPanel();
-    ClientsList myClientList = new ClientsList();
+    private UserPanel myUI;
+    private Database members;
+
+    public void Configure(UserPanel myUI, Database members) {
+        this.myUI = myUI;
+        this.members = members;
+    }
 
     public void mainController(){
-        userChoice myUserChoice = myUI.requestUserOption();
+        userChoice myUserChoice = myUI.userMenu();
         switch (myUserChoice) {
-            case CREATE -> {doCreate();}
-            case FIND -> {doFindAndShowClient();}
-            case REMOVE -> {doFindAndRemoveClient();}
-            case LIST -> {doListOfAllClients();}
-            case COPY -> {doCopyDatabaseIntoFile();}
+            case SETUP -> {doSetup();}
+            case ADD -> {doAdd();}
+            case FIND -> {doFindAndShowMember();}
+            case REMOVE -> {doFindAndRemoveMember();}
+            case LIST -> {doListMembers();}
+            case BACKUP -> {doBackupFile();}
             case EXIT -> {doExit();}
         }
     }
 
-    // Process and Do
-    public void doCreate(){
-        Member newClient = myUI.getNewClientToCreate();
-        if (newClient != null){
-            myClientList.addNewClient(newClient);
-            myClientList.writeIntoDatabase(newClient, ClientsList.DEFAULT_FILE_PATH);
-            myUI.successfulMessage();
-        }else
-            myUI.failureMessage();
+    private void doSetup() {
+        members.createFile(MemberList.DEFAULT_FILE_PATH);
     }
 
-    public void doFindAndShowClient(){
-        int id = myUI.getClientIdToSearch();
-        Member foundClient = myClientList.findClientFromDatabaseClientList(id);
-        myUI.showClient(foundClient);
+
+    private void doAdd() {
+        MemberList.currentList = members.downloadFromFile();
+        Member newMember = myUI.getNewMember();
+        members.addMember(newMember);
+        members.writeMemberToFile(newMember, MemberList.DEFAULT_FILE_PATH);
     }
 
-    public void doFindAndRemoveClient(){
-        int id = myUI.getClientIdToRemove();
-        Member foundClient = myClientList.findClientFromDatabaseClientList(id);
-        myClientList.removeClientFromList(foundClient);
-
-
+    private void doFindAndShowMember() {
+        MemberList.currentList = members.downloadFromFile();
+        int id = myUI.getIdToSearch();
+        Member foundMember = members.findMember(id);
+        myUI.showMember(foundMember);
     }
 
-    public void doListOfAllClients(){
-        myUI.showDatabaseClientList(myClientList.retrieveDatabaseClientList());
+
+    private void doFindAndRemoveMember() {
+        MemberList.currentList = members.downloadFromFile();
+        int id = myUI.getIdToSearch();
+        Member foundMember = members.findMember(id);
+        members.removeMember(id);
+        System.out.println(foundMember.name_first +" "+foundMember.name_last+" removed.");
+        doSetup();
+        members.uploadToFile(MemberList.currentList, MemberList.DEFAULT_FILE_PATH);
     }
 
-    public void doCopyDatabaseIntoFile() {
-        String newFilePath = myUI.getNewFilePath();
-        List<Member> copyOfClientList = myClientList.retrieveDatabaseClientList();
-        myClientList.writeListToDatabaseFile(newFilePath, copyOfClientList);
+
+    private void doListMembers() {
+        MemberList.currentList = members.downloadFromFile();
+        for (Member item: MemberList.currentList
+             ) {
+            myUI.showMember(item);
+        }
     }
+
+
+    private void doBackupFile() {
+        String path = myUI.getFilePath();
+        List<Member> currentList = members.downloadFromFile();
+        members.createFile(path);
+        members.uploadToFile(currentList, path);
+    }
+
 
     public void doExit(){
         myUI.exitMessage();
