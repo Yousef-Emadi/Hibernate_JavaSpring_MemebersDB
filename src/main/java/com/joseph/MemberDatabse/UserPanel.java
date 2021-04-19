@@ -10,14 +10,14 @@ public class UserPanel {
 
     //methods
     public userChoice userMenu() {
-        System.out.println("\nPlease, select one of these actions");
-        System.out.println("  0. (Re)install database");
-        System.out.println("  1. Add a new member");
-        System.out.println("  2. Find a member");
-        System.out.println("  3. Remove a member");
-        System.out.println("  4. List members");
-        System.out.println("  5. Backup database");
-        System.out.println("  9. Exit from menu");
+        System.out.println("\nPlease, enter an option number");
+        System.out.print("\n   0. (Re)install database");
+        System.out.print("\n   1. Add a new member");
+        System.out.print("\n   2. Find a member");
+        System.out.print("\n   3. Remove a member");
+        System.out.print("\n   4. List members");
+        System.out.print("\n   5. Backup database");
+        System.out.print("\n   9. Exit from application\n");
         int choiceNumber = input.nextInt();
         switch (choiceNumber) {
             case 0 -> {
@@ -56,7 +56,7 @@ public class UserPanel {
 
 
     public Member getNewMember() {
-        System.out.print("Please enter id for new member or enter 0 to use ID auto generate: ");
+        System.out.print("Please enter id for new member or enter 0 to use auto-generate ID: ");
         int id = input.nextInt();
         input.nextLine(); //to consume left-over line after nextInt
 
@@ -91,6 +91,8 @@ public class UserPanel {
                 "\n-------------------------------------"
         );
     }
+
+    public void userNotFoundMessage(){  System.out.println("\nMember not found");  }
 
     public void exitMessage() {
         System.out.println("Thank you and Good luck :)");

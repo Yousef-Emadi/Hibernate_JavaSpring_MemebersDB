@@ -29,7 +29,7 @@ public class MemberList implements Database{
         try {
             File myObj = new File(DEFAULT_FILE_PATH);
             Scanner myReader = new Scanner(myObj);
-            System.out.println("\n-- Download from Database file -- ");
+            System.out.println("\n-- connecting to database file -- ");
 
             // create a temporary Arraylist to hold client objects will be created by output stream from file
             while (myReader.hasNextLine()) {

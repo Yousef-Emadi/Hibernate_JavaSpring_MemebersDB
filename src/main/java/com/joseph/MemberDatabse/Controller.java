@@ -48,7 +48,10 @@ public class Controller {
         MemberList.currentList = members.downloadFromFile();
         int id = myUI.getIdToSearch();
         Member foundMember = members.findMember(id);
-        myUI.showMember(foundMember);
+        if (foundMember == null)
+            myUI.userNotFoundMessage();
+        else
+            myUI.showMember(foundMember);
     }
 
 
@@ -56,10 +59,15 @@ public class Controller {
         MemberList.currentList = members.downloadFromFile();
         int id = myUI.getIdToSearch();
         Member foundMember = members.findMember(id);
-        members.removeMember(id);
-        System.out.println(foundMember.name_first +" "+foundMember.name_last+" removed.");
-        doSetup();
-        members.uploadToFile(MemberList.currentList, MemberList.DEFAULT_FILE_PATH);
+        if (foundMember == null)
+            myUI.userNotFoundMessage();
+        else {
+            members.removeMember(id);
+            System.out.println(foundMember.name_first +" "+foundMember.name_last+" removed.");
+            doSetup();
+            members.uploadToFile(MemberList.currentList, MemberList.DEFAULT_FILE_PATH);
+        }
+
     }
 
 
