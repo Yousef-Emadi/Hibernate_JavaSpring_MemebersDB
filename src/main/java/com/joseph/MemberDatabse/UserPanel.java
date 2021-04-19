@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class UserPanel {
     //variables
     Scanner input = new Scanner(System.in);
+    IdGenerator idGen = new IdGenerator(); //create an instance from class to use its methods and attribs
 
     //methods
     public userChoice userMenu() {
@@ -55,7 +56,7 @@ public class UserPanel {
 
 
     public Member getNewMember() {
-        System.out.print("Please enter id for new member: ");
+        System.out.print("Please enter id for new member or enter 0 to use ID auto generate: ");
         int id = input.nextInt();
         input.nextLine(); //to consume left-over line after nextInt
 
@@ -65,6 +66,7 @@ public class UserPanel {
         System.out.print("Please enter member last name: ");
         String lname = input.nextLine();
 
+        if (id == 0) id = idGen.id();
         Member member = new Member(id, fname, lname, "(438) 654-7898", fname + "@gmail.com", "2000-01-01", "6500 Forest Hill", 0);
         return member;
     }

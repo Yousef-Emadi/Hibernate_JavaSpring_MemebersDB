@@ -1,6 +1,5 @@
 package com.joseph.MemberDatabse;
 
-import java.io.File;
 import java.util.List;
 
 public class Controller {
@@ -8,10 +7,12 @@ public class Controller {
     //new objects
     private UserPanel myUI;
     private Database members;
+    private IdGenerator idGen;
 
-    public void Configure(UserPanel myUI, Database members) {
+    public void Configure(UserPanel myUI, Database members, IdGenerator idGen) {
         this.myUI = myUI;
         this.members = members;
+        this.idGen = idGen;
     }
 
     public void mainController(){
@@ -28,7 +29,10 @@ public class Controller {
     }
 
     private void doSetup() {
+
         members.createFile(MemberList.DEFAULT_FILE_PATH);
+        idGen.createIDFile();
+        idGen.writeId(0);
     }
 
 
@@ -37,6 +41,7 @@ public class Controller {
         Member newMember = myUI.getNewMember();
         members.addMember(newMember);
         members.writeMemberToFile(newMember, MemberList.DEFAULT_FILE_PATH);
+        idGen.writeId(newMember.id);
     }
 
     private void doFindAndShowMember() {
