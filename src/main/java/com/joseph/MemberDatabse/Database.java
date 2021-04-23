@@ -1,6 +1,14 @@
 package com.joseph.MemberDatabse;
-
 import java.util.List;
+
+/**
+ * Project: Member Database with Hibernate
+ * Developed by: Yousef Emadi
+ * Date: APR 2021
+ * Supported by: Java, Spring, H2
+ */
+
+
 
 public interface Database {
 
@@ -12,7 +20,7 @@ public interface Database {
     void deleteFile(String path);
 
     //member handling
-    void addMember(Member member);
+    boolean addMember(Member member);
     Member findMember(int id);
     void removeMember(int id);
 }

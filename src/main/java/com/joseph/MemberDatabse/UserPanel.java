@@ -2,6 +2,12 @@ package com.joseph.MemberDatabse;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+/**
+ * Project: Member Database with Hibernate
+ * Developed by: Yousef Emadi
+ * Date: APR 2021
+ * Supported by: Java, Spring, H2
+ */
 
 
 public class UserPanel {
@@ -14,34 +20,26 @@ public class UserPanel {
         Scanner input = new Scanner(System.in);
 
         System.out.println("\nPlease, enter an option number");
-        System.out.print("\n   1. (Re)install database");
-        System.out.print("\n   2. Add a new member");
-        System.out.print("\n   3. Find a member");
-        System.out.print("\n   4. Remove a member");
-        System.out.print("\n   5. List members");
-        System.out.print("\n   6. Backup database");
+        System.out.print("\n   1. Add a new member");
+        System.out.print("\n   2. Find a member");
+        System.out.print("\n   3. Remove a member");
+        System.out.print("\n   4. List members");
         System.out.print("\n   0. Exit from application\n");
 
-        int choiceNumber = getNumberFromUser(0,6);
+        int choiceNumber = getNumberFromUser(0,4);
 
         switch (choiceNumber) {
             case 1 -> {
-                return userChoice.SETUP;
-            }
-            case 2 -> {
                 return userChoice.ADD;
             }
-            case 3 -> {
+            case 2 -> {
                 return userChoice.FIND;
             }
-            case 4 -> {
+            case 3 -> {
                 return userChoice.REMOVE;
             }
-            case 5 -> {
+            case 4 -> {
                 return userChoice.LIST;
-            }
-            case 6 -> {
-                return userChoice.BACKUP;
             }
             case 0 -> {
                 return userChoice.EXIT;
@@ -52,11 +50,6 @@ public class UserPanel {
         }
     }
 
-    public String getFilePath() {
-        System.out.println("Please enter a full path including file name. Default: src\\main\\resources\\Database.txt");
-        String path = input.next();
-        return path;
-    }
 
 
     public Member getNewMember() {
@@ -96,11 +89,9 @@ public class UserPanel {
         );
     }
 
-    public void userNotFoundMessage(){  System.out.println("\nMember not found");  }
+    public void userNotFoundMessage(){  System.out.println("\nMember not found");}
 
-    public void exitMessage() {
-        System.out.println("Thank you and Good luck :)");
-    }
+    public void exitMessage() {System.out.println("Thank you and Good luck :)");}
 
 
     // Method to get number from user and handles InputMismatchException and logical expressions
@@ -135,6 +126,12 @@ public class UserPanel {
                 continue;
             } // end catch
     } // end method getNumberFromUser
+
+//    public String getFilePath() {
+//        System.out.println("Please enter a full path including file name. Default: src\\main\\resources\\Database.txt");
+//        String path = input.next();
+//        return path;
+//    }
 
 
 }
