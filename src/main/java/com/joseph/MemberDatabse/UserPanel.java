@@ -1,5 +1,6 @@
 package com.joseph.MemberDatabse;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -10,39 +11,42 @@ public class UserPanel {
 
     //methods
     public userChoice userMenu() {
+        Scanner input = new Scanner(System.in);
+
         System.out.println("\nPlease, enter an option number");
-        System.out.print("\n   0. (Re)install database");
-        System.out.print("\n   1. Add a new member");
-        System.out.print("\n   2. Find a member");
-        System.out.print("\n   3. Remove a member");
-        System.out.print("\n   4. List members");
-        System.out.print("\n   5. Backup database");
-        System.out.print("\n   9. Exit from application\n");
-        int choiceNumber = input.nextInt();
+        System.out.print("\n   1. (Re)install database");
+        System.out.print("\n   2. Add a new member");
+        System.out.print("\n   3. Find a member");
+        System.out.print("\n   4. Remove a member");
+        System.out.print("\n   5. List members");
+        System.out.print("\n   6. Backup database");
+        System.out.print("\n   0. Exit from application\n");
+
+        int choiceNumber = getNumberFromUser(0,6);
+
         switch (choiceNumber) {
-            case 0 -> {
+            case 1 -> {
                 return userChoice.SETUP;
             }
-            case 1 -> {
+            case 2 -> {
                 return userChoice.ADD;
             }
-            case 2 -> {
+            case 3 -> {
                 return userChoice.FIND;
             }
-            case 3 -> {
+            case 4 -> {
                 return userChoice.REMOVE;
             }
-            case 4 -> {
+            case 5 -> {
                 return userChoice.LIST;
             }
-            case 5 -> {
+            case 6 -> {
                 return userChoice.BACKUP;
             }
-            case 9 -> {
+            case 0 -> {
                 return userChoice.EXIT;
             }
             default -> {
-                System.out.println("Please enter an valid option number including 0, 1, 2, 3, 4, 5 and 9\n");
                 return userChoice.NONE;
             }
         }
@@ -97,6 +101,41 @@ public class UserPanel {
     public void exitMessage() {
         System.out.println("Thank you and Good luck :)");
     }
+
+
+    // Method to get number from user and handles InputMismatchException and logical expressions
+    public int getNumberFromUser(int min, int max){
+        Scanner scanner = new Scanner(System.in);
+        while(true)
+            try {
+                int userChoice = scanner.nextInt();
+                if (!(userChoice >= min && userChoice <= max)) {
+                    System.out.print("Please enter an valid option number including ");
+                    for (int i = min; i <= max; i++){
+                        if (i == max-1) {
+                            System.out.print(i);
+                            break;
+                        }
+                        System.out.print(i+", ");
+                    }
+                    continue;
+                }
+                return userChoice;
+
+            } catch (InputMismatchException ime) {
+                System.out.print("Please enter an valid option number including ");
+                for (int i = min; i <= max; i++){
+                    if (i == max-1) {
+                        System.out.print(i);
+                        break;
+                    }
+                    System.out.print(i+", ");
+                }
+                scanner.nextLine();
+                continue;
+            } // end catch
+    } // end method getNumberFromUser
+
 
 }
 
