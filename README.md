@@ -10,10 +10,11 @@ there is a currentList as a temporary media to hold processing values. <br/>
 auto-generate id is avaialbe in the program using a file to store all id used already <br/>
 user panel interface is including: <br/>
 
-   0. (Re)install database <br/>
-   1. Add a new member<br/>
-   2. Find a member<br/>
-   3. Remove a member<br/>
-   4. List members<br/>
-   5. Backup database<br/>
-   9. Exit from application<br/>
+   Please, enter an option number
+
+   1. Add a new member
+   2. Find a member
+   3. List members
+   4. Update a member
+   5. Remove a member
+   0. Exit from application
