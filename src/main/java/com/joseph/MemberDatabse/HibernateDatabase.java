@@ -1,6 +1,6 @@
 package com.joseph.MemberDatabse;
 
-import java.util.List;
+
 import java.util.Optional;
 
 public class HibernateDatabase implements Database{
@@ -32,6 +32,7 @@ public class HibernateDatabase implements Database{
     public Iterable<Member> listMember() {
         return memberRepository.findAll();
     }
+
 
     @Override
     public void removeMember(Member member) {

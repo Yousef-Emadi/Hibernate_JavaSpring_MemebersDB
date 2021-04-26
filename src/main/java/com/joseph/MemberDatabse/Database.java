@@ -16,7 +16,6 @@ public interface Database {
     boolean addMember(Member member);
     Member findMember(int id);
     Iterable<Member> listMember();
-//    boolean updateMember(Member member);
     void removeMember(Member member);
 }
 

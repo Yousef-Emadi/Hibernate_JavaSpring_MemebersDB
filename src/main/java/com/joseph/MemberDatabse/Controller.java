@@ -24,11 +24,13 @@ public class Controller {
         switch (myUserChoice) {
             case ADD -> {doAdd();}
             case FIND -> {doFindAndShowMember();}
-            case REMOVE -> {doFindAndRemoveMember();}
             case LIST -> {doListMembers();}
+            case UPDATE -> {doUpdateMember();}
+            case REMOVE -> {doRemoveMember();}
             case EXIT -> {doExit();}
         }
     }
+
 
     private void doAdd() {
         Member newMember = myUI.getNewMember();
@@ -49,7 +51,21 @@ public class Controller {
         members.listMember().forEach(member -> myUI.showMember(member));
     }
 
-    private void doFindAndRemoveMember() {
+    private void doUpdateMember() {
+        int id = myUI.getIdToSearch();
+        Member oldMember = members.findMember(id);
+        if (oldMember != null){
+            Member newMember = myUI.getNewMember();
+            members.addMember(newMember);
+            members.removeMember(oldMember);
+            myUI.updateMemberMessage(oldMember, newMember);
+        }
+        else
+                myUI.memberNotFoundMessage();
+    }
+
+
+    private void doRemoveMember() {
         int id = myUI.getIdToSearch();
         Member foundMember = members.findMember(id);
         if (foundMember != null){
@@ -60,7 +76,6 @@ public class Controller {
             myUI.memberNotFoundMessage();
 
     }
-
 
 
     public void doExit(){

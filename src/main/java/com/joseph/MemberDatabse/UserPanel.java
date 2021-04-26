@@ -1,6 +1,5 @@
 package com.joseph.MemberDatabse;
 
-import javax.persistence.GeneratedValue;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 /**
@@ -23,10 +22,11 @@ public class UserPanel {
         System.out.print("\n   1. Add a new member");
         System.out.print("\n   2. Find a member");
         System.out.print("\n   3. List members");
-        System.out.print("\n   4. Remove a member");
+        System.out.print("\n   4. Update a member");
+        System.out.print("\n   5. Remove a member");
         System.out.print("\n   0. Exit from application\n");
 
-        int choiceNumber = getNumberFromUser(0,4);
+        int choiceNumber = getNumberFromUser(0,5);
 
         switch (choiceNumber) {
             case 1 -> {
@@ -39,6 +39,9 @@ public class UserPanel {
                 return userChoice.LIST;
             }
             case 4 -> {
+                return userChoice.UPDATE;
+            }
+            case 5 -> {
                 return userChoice.REMOVE;
             }
             case 0 -> {
@@ -88,6 +91,7 @@ public class UserPanel {
 
     public void memberNotFoundMessage(){  System.out.println("\n <<<<<   Member not found   >>>>>");}
     public void memberRemovedMessage(Member mmbr){  System.out.println("\n <<<<<   " + mmbr.name_first + " with ID number "+ mmbr.id + " removed from your database   >>>>>");}
+    public void updateMemberMessage(Member oldMember, Member newMember){  System.out.println("\n <<<<<   " + oldMember.name_first + " with ID number "+ oldMember.id + " updated and stored into a new record with member ID number "+ newMember.id +" >>>>>");}
     public void exitMessage() {System.out.println("<<<<<   Thank you and Good luck :)  >>>>> \n" );}
 
 
@@ -98,37 +102,28 @@ public class UserPanel {
             try {
                 int userChoice = scanner.nextInt();
                 if (!(userChoice >= min && userChoice <= max)) {
-                    System.out.println(">>>>>    Please enter an valid option number including ");
-                    for (int i = min; i <= max; i++){
-                        if (i == max-1) {
-                            System.out.print(i);
-                            break;
-                        }
-                        System.out.print(i+", ");
+                    System.out.print(">>>>>    Please enter an valid option number including ");
+                    System.out.print(min);
+                    for (int i = min+1; i < max; i++){
+                        System.out.print(", " + i);
                     }
+                    System.out.print(" and " + max + "\n");
+
                     continue;
                 }
                 return userChoice;
 
             } catch (InputMismatchException ime) {
-                System.out.println(">>>>>   Please enter an valid option number including ");
-                for (int i = min; i <= max; i++){
-                    if (i == max-1) {
-                        System.out.print(i);
-                        break;
-                    }
-                    System.out.print(i+", ");
+                System.out.print(">>>>>   Please enter an valid option number including ");
+                System.out.print(min);
+                for (int i = min+1; i < max; i++){
+                    System.out.print(", " + i);
                 }
+                System.out.print(" and " + max+ "\n");
                 scanner.nextLine();
                 continue;
             } // end catch
     } // end method getNumberFromUser
-
-//    public String getFilePath() {
-//        System.out.println("Please enter a full path including file name. Default: src\\main\\resources\\Database.txt");
-//        String path = input.next();
-//        return path;
-//    }
 
 
 }
