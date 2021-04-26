@@ -2,6 +2,8 @@ package com.joseph.MemberDatabse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -28,6 +30,12 @@ public class SpringMvcController {
 
 
         return "New member added to repo";
+    }
 
+    @GetMapping("/list")
+    public String listMembers(ModelMap modelMap){
+        modelMap.addAttribute("members", memberRepository.findAll());
+
+        return "list_members";
     }
 }

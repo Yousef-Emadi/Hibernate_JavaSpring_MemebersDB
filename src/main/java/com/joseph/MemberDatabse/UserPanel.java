@@ -76,14 +76,13 @@ public class UserPanel {
     }
     public void showMemberLineStyle(Member mmbr) {
         System.out.println(
-                "{ id: " + mmbr.id +
-                " first name: " + mmbr.name_first +
-                " last name: " + mmbr.name_last +
-                " phone: " + mmbr.phone +
-                " email: " + mmbr.email +
-                " DOB: " + mmbr.dob +
-                " address: " + mmbr.address +
-                " balance: " + mmbr.balance+
+                "{ " + mmbr.id +
+                ": name: " + mmbr.name_first +" "+ mmbr.name_last +
+                ", phone: " + mmbr.phone +
+                ", email: " + mmbr.email +
+                ", DOB: " + mmbr.dob +
+                ", address: " + mmbr.address +
+                ", balance: " + mmbr.balance+
                 " }"
         );
     }
