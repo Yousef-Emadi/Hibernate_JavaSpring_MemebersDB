@@ -17,6 +17,8 @@ public class HibernateDatabase implements Database{
         }
     }
 
+
+
     @Override
     public Member findMember(int id) {
         // Optional is a special Java feature so methods can avoid returning null.
