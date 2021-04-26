@@ -41,14 +41,14 @@ public class Controller {
         int id = myUI.getIdToSearch();
         Member foundMember = members.findMember(id);
         if (foundMember != null)
-            myUI.showMember(foundMember);
+            myUI.showMemberVerticalStyle(foundMember);
         else
             myUI.memberNotFoundMessage();
     }
 
 
     private void doListMembers() {
-        members.listMember().forEach(member -> myUI.showMember(member));
+        members.listMember().forEach(member -> myUI.showMemberLineStyle(member));
     }
 
     private void doUpdateMember() {

@@ -74,8 +74,21 @@ public class UserPanel {
         int id = input.nextInt();
         return id;
     }
+    public void showMemberLineStyle(Member mmbr) {
+        System.out.println(
+                "{ id: " + mmbr.id +
+                " first name: " + mmbr.name_first +
+                " last name: " + mmbr.name_last +
+                " phone: " + mmbr.phone +
+                " email: " + mmbr.email +
+                " DOB: " + mmbr.dob +
+                " address: " + mmbr.address +
+                " balance: " + mmbr.balance+
+                " }"
+        );
+    }
 
-    public void showMember(Member mmbr) {
+    public void showMemberVerticalStyle(Member mmbr) {
         System.out.println(
                 "\nid: " + mmbr.id +
                 "\nfirst name: " + mmbr.name_first +
