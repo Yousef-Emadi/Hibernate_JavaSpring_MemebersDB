@@ -1,25 +1,25 @@
-package com.joseph.MemberDatabse;
+//package com.joseph.MemberDatabse;
+//
+//import java.io.File;
+//import java.io.FileNotFoundException;
+//import java.io.FileWriter;
+//import java.io.IOException;
+//import java.util.ArrayList;
+//import java.util.List;
+//import java.util.Scanner;
+//
+///**
+// * Project: Member Database with Hibernate
+// * Developed by: Yousef Emadi
+// * Date: APR 2021
+// * Supported by: Java, Spring, H2
+// */
+//
+//
+//
+//public class MemberList{
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
-/**
- * Project: Member Database with Hibernate
- * Developed by: Yousef Emadi
- * Date: APR 2021
- * Supported by: Java, Spring, H2
- */
-
-
-
-public class MemberList{
-
-    public static List<Member> currentList = new ArrayList<Member>();
+//    public static List<Member> currentList = new ArrayList<Member>();
 //    public static final String DEFAULT_FILE_PATH = "src\\main\\resources\\Database.txt";
 
 //    @Override
@@ -139,4 +139,4 @@ public class MemberList{
 //    public void removeMember(int id) {
 //        currentList.remove(findMember(id));
 //    }
-}
+//}

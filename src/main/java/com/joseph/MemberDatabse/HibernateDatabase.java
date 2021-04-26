@@ -8,30 +8,6 @@ public class HibernateDatabase implements Database{
     private MemberRepository memberRepository = MemberDB_Application.ctx.getBean(MemberRepository.class);
 
     @Override
-    public void createFile(String path) {
-    }
-
-    @Override
-    public List<Member> downloadFromFile() {
-        return null;
-    }
-
-    @Override
-    public void writeMemberToFile(Member member, String filePath) {
-
-    }
-
-    @Override
-    public void uploadToFile(List<Member> list, String filePath) {
-
-    }
-
-    @Override
-    public void deleteFile(String path) {
-
-    }
-
-    @Override
     public boolean addMember(Member member) {
         Member addMemberResult = memberRepository.save(member);
         if (addMemberResult != null) {
@@ -53,7 +29,14 @@ public class HibernateDatabase implements Database{
     }
 
     @Override
-    public void removeMember(int id) {
-        memberRepository.delete(findMember(id));
+    public Iterable<Member> listMember() {
+        return memberRepository.findAll();
     }
+
+    @Override
+    public void removeMember(Member member) {
+        memberRepository.delete(member);
+    }
+
+
 }

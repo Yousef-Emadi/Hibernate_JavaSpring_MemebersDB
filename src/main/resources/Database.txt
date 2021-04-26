@@ -1,3 +1,0 @@
-1,Tom,white,(438) 654-7898,Tom@gmail.com,2000-01-01,6500 Forest Hill,0.0
-2,Marji,white,(438) 654-7898,Marji@gmail.com,2000-01-01,6500 Forest Hill,0.0
-3,Adam,White,(438) 654-7898,Adam@gmail.com,2000-01-01,6500 Forest Hill,0.0

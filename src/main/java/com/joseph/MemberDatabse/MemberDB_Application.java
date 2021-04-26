@@ -31,12 +31,13 @@ public class MemberDB_Application implements ApplicationContextAware {
     public static void main(String[] args) {
         SpringApplication.run(MemberDB_Application.class, args);
 
+        //Instantiation of main parts
         UserPanel userPanel = new UserPanel();
         Database list = new HibernateDatabase();
-        IdGenerator idGen = new IdGenerator();
         Controller controller = new Controller();
 
-        controller.Configure(userPanel, list, idGen);
+        //config Controller
+        controller.Configure(userPanel, list);
 
 
         while (true) {

@@ -1,5 +1,4 @@
 package com.joseph.MemberDatabse;
-import java.util.List;
 
 /**
  * Project: Member Database with Hibernate
@@ -9,18 +8,15 @@ import java.util.List;
  */
 
 
-
 public class Controller {
 
     //new objects
     private UserPanel myUI;
     private Database members;
-    private IdGenerator idGen;
 
-    public void Configure(UserPanel myUI, Database members, IdGenerator idGen) {
+    public void Configure(UserPanel myUI, Database members) {
         this.myUI = myUI;
         this.members = members;
-        this.idGen = idGen;
     }
 
     public void mainController(){
@@ -34,67 +30,43 @@ public class Controller {
         }
     }
 
-
-
     private void doAdd() {
         Member newMember = myUI.getNewMember();
         members.addMember(newMember);
     }
 
     private void doFindAndShowMember() {
-//        MemberList.currentList = members.downloadFromFile();
-//        int id = myUI.getIdToSearch();
-//        Member foundMember = members.findMember(id);
-//        if (foundMember == null)
-//            myUI.userNotFoundMessage();
-//        else
-//            myUI.showMember(foundMember);
-    }
-
-
-    private void doFindAndRemoveMember() {
-//        MemberList.currentList = members.downloadFromFile();
-//        int id = myUI.getIdToSearch();
-//        Member foundMember = members.findMember(id);
-//        if (foundMember == null)
-//            myUI.userNotFoundMessage();
-//        else {
-//            members.removeMember(id);
-//            System.out.println(foundMember.name_first +" "+foundMember.name_last+" removed.");
-////            doSetup();
-//            members.uploadToFile(MemberList.currentList, MemberList.DEFAULT_FILE_PATH);
-//        }
-
+        int id = myUI.getIdToSearch();
+        Member foundMember = members.findMember(id);
+        if (foundMember != null)
+            myUI.showMember(foundMember);
+        else
+            myUI.memberNotFoundMessage();
     }
 
 
     private void doListMembers() {
-//        MemberList.currentList = members.downloadFromFile();
-//        for (Member item: MemberList.currentList
-//             ) {
-//            myUI.showMember(item);
-//        }
+        members.listMember().forEach(member -> myUI.showMember(member));
     }
+
+    private void doFindAndRemoveMember() {
+        int id = myUI.getIdToSearch();
+        Member foundMember = members.findMember(id);
+        if (foundMember != null){
+            members.removeMember(foundMember);
+            myUI.memberRemovedMessage(foundMember);
+        }
+        else
+            myUI.memberNotFoundMessage();
+
+    }
+
 
 
     public void doExit(){
         myUI.exitMessage();
         System.exit(0);
     }
-
-//    private void doSetup() {
-//
-//        members.createFile(MemberList.DEFAULT_FILE_PATH);
-//        idGen.createIDFile();
-//        idGen.writeId(0);
-//    }
-//
-//    private void doBackupFile() {
-//        String path = myUI.getFilePath();
-//        List<Member> currentList = members.downloadFromFile();
-//        members.createFile(path);
-//        members.uploadToFile(currentList, path);
-//    }
 
 }
 
