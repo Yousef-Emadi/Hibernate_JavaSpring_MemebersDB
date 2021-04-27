@@ -7,35 +7,46 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p><a href="/hello">Greet the world!</a></p>
+<!--<p><a href="/hello">Greet the world!</a></p>-->
 
-<form action="/hello" method="GET" id="nameForm">
-  <div>
-    <label for="nameField">How should the app call you?</label>
-    <input name="myName" id="nameField">
-    <button>Greet me!</button>
+<!--<form action="/hello" method="GET" id="nameForm">-->
+<!--  <div>-->
+<!--    <label for="nameField">How should the app call you?</label>-->
+<!--    <input name="myName" id="nameField">-->
+<!--    <button>Greet me!</button>-->
 
-  </div>
-</form>
+<!--  </div>-->
+<!--</form>-->
+<fieldset>
+  <form action="/add" method="POST">
+    <p>Let's add a new member.</p>
+    <div>
+      <label for="name_first">First name:</label>
+      <input name="name_first" id="name_first" value="Homer">
+    </div>
+    <div>
+      <label for="name_last">Last name:</label>
+      <input name="name_last" id="name_last" value="Simpson">
+    </div>
+    <div>
+      <button>Add member</button>
+    </div>
+  </form>
+</fieldset><br>
 
-    <form action="/add" method="POST">
-      <p>Let's add a new member.</p>
-      <div>
-        <label for="name_first">First name:</label>
-        <input name="name_first" id="firstName" value="Homer">
-      </div>
-      <div>
-        <label for="name_last">Last name:</label>
-        <input name="name_last" id="lastName" value="Simpson">
-      </div>
-      <div>
-        <button>Add member</button>
-      </div>
-    </form>
+<fieldset>
+  <form action="/list" method="GET">
+    <button>List members </button>
+  </form>
+</fieldset><br>
 
-<form action="/list" method="GET">
-  <button>List members </button>
-</form>
+<fieldset>
+  <form action="/find" method="GET">
+    <label for="id">ID:</label>
+    <input name="id" id="id" placeholder="ID">
+    <button>find member </button>
+  </form>
+</fieldset><br>
 
 </body>
 </html>

@@ -32,10 +32,10 @@ public class MemberDB_Application implements ApplicationContextAware {
     }
 
 
-    @GetMapping("/hello")
-    public String sayHello(@RequestParam(value = "myName", defaultValue = "World") String name) {
-        return String.format("Hello %s!", name);
-    }
+//    @GetMapping("/hello")
+//    public String sayHello(@RequestParam(value = "myName", defaultValue = "World") String name) {
+//        return String.format("Hello %s!", name);
+//    }
 
     public static void main(String[] args) {
         SpringApplication.run(MemberDB_Application.class, args);

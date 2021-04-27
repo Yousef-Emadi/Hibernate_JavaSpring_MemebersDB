@@ -5,7 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.HashMap;
+import java.util.Optional;
 
 @Controller
 public class SpringMvcController {
@@ -28,7 +32,6 @@ public class SpringMvcController {
 
         memberRepository.save(newMember);
 
-
         return "New member added to repo";
     }
 
@@ -37,5 +40,15 @@ public class SpringMvcController {
         modelMap.addAttribute("members", memberRepository.findAll());
 
         return "list_members";
+    }
+
+    @RequestMapping("/find")
+    public String findMember(int id){
+
+       Optional<Member> foundMember = memberRepository.findById(id);
+       ModelMap model = new ModelMap();
+       model.addAttribute("members", foundMember);
+
+       return "list_members";
     }
 }
