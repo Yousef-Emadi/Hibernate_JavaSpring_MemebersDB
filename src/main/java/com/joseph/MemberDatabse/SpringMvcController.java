@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.swing.text.html.Option;
 import java.util.HashMap;
 import java.util.Optional;
 
@@ -42,13 +43,31 @@ public class SpringMvcController {
         return "list_members";
     }
 
-    @RequestMapping("/find")
-    public String findMember(int id){
 
-       Optional<Member> foundMember = memberRepository.findById(id);
-       ModelMap model = new ModelMap();
-       model.addAttribute("members", foundMember);
+    @GetMapping("/find")
+    public String findMember(int id, ModelMap model){
+        Optional<Member> foundMember = memberRepository.findById(id);
 
-       return "list_members";
+        if (foundMember.isPresent()) {
+            Member memberObj = foundMember.get();
+            model.addAttribute("members", memberObj);
+            return "list_members";
+        }else
+            return "sorry_DB_page";
     }
+
+
+    @GetMapping("/updateName")
+    @ResponseBody
+    public String updateMemberName(int id, String newName){
+        Optional<Member> foundMember = memberRepository.findById(id);
+
+        if (foundMember.isPresent()){
+            Member memberObj = foundMember.get();
+            memberObj.setName_first(newName);
+            memberRepository.save(memberObj);
+            return "Done!";
+        } else return "Failed!";
+    }
+
 }
