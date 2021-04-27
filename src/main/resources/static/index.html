@@ -5,48 +5,45 @@
 <head>
   <title>You first Spring application</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
 </head>
 <body>
-<!--<p><a href="/hello">Greet the world!</a></p>-->
 
-<!--<form action="/hello" method="GET" id="nameForm">-->
-<!--  <div>-->
-<!--    <label for="nameField">How should the app call you?</label>-->
-<!--    <input name="myName" id="nameField">-->
-<!--    <button>Greet me!</button>-->
 
-<!--  </div>-->
-<!--</form>-->
-<fieldset>
+
   <form action="/add" method="POST">
-    <p>Let's add a new member.</p>
+
     <div>
       <label for="name_first">First name:</label>
-      <input name="name_first" id="name_first" value="Homer">
-    </div>
+      <input name="name_first" id="name_first">
+    </div><br>
     <div>
       <label for="name_last">Last name:</label>
-      <input name="name_last" id="name_last" value="Simpson">
-    </div>
+      <input name="name_last" id="name_last">
+    </div><br>
     <div>
       <button>Add member</button>
     </div>
   </form>
-</fieldset><br>
 
-<fieldset>
+  <hr><br>
+
+
   <form action="/list" method="GET">
     <button>List members </button>
   </form>
-</fieldset><br>
 
-<fieldset>
+<hr><br>
+
+
   <form action="/find" method="GET">
     <label for="id">ID:</label>
     <input name="id" id="id" placeholder="ID">
     <button>find member </button>
   </form>
-</fieldset><br>
+
+  <hr><br>
 
 </body>
 </html>
