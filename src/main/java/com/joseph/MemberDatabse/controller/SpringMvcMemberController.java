@@ -1,20 +1,20 @@
-package com.joseph.MemberDatabse;
+package com.joseph.MemberDatabse.controller;
 
+import com.joseph.MemberDatabse.entity.Member;
+import com.joseph.MemberDatabse.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.swing.text.html.Option;
-import java.util.HashMap;
 import java.util.Optional;
 
 @Controller
-public class SpringMvcController {
+public class SpringMvcMemberController {
 
+    // each field requires its own annotation
     @Autowired
     private MemberRepository memberRepository;
 
@@ -42,6 +42,7 @@ public class SpringMvcController {
 
         return "list_members";
     }
+
 
 
     @GetMapping("/find")

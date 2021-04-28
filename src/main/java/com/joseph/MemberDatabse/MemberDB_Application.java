@@ -1,17 +1,17 @@
 package com.joseph.MemberDatabse;
 
 
+import com.joseph.MemberDatabse.archive.Database;
+import com.joseph.MemberDatabse.archive.HibernateDatabase;
+import com.joseph.MemberDatabse.archive.UserPanel;
+import com.joseph.MemberDatabse.controller.ClassicController;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.InputMismatchException;
 
 /**
  * Project: Member Database with Hibernate
@@ -43,9 +43,9 @@ public class MemberDB_Application implements ApplicationContextAware {
         //Instantiation of main parts
         UserPanel userPanel = new UserPanel();
         Database list = new HibernateDatabase();
-        Controller controller = new Controller();
+        ClassicController controller = new ClassicController();
 
-        //config Controller
+        //config ClassicController
         controller.Configure(userPanel, list);
 
 

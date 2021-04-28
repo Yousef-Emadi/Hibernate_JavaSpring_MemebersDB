@@ -1,4 +1,9 @@
-package com.joseph.MemberDatabse;
+package com.joseph.MemberDatabse.controller;
+
+import com.joseph.MemberDatabse.archive.Database;
+import com.joseph.MemberDatabse.entity.Member;
+import com.joseph.MemberDatabse.archive.UserPanel;
+import com.joseph.MemberDatabse.archive.userChoice;
 
 /**
  * Project: Member Database with Hibernate
@@ -8,7 +13,7 @@ package com.joseph.MemberDatabse;
  */
 
 
-public class Controller {
+public class ClassicController {
 
     //new objects
     private UserPanel myUI;

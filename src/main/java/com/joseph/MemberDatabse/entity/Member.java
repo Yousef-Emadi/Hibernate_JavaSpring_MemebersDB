@@ -1,10 +1,13 @@
-package com.joseph.MemberDatabse;
+package com.joseph.MemberDatabse.entity;
+import com.joseph.MemberDatabse.entity.Purchase;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 /**
  * Project: Member Database with Hibernate
@@ -28,14 +31,19 @@ public class Member {
                     @Parameter(name = "increment_size", value = "1")
             }
     )
-    int id = 0;
-    String name_first;
-    String name_last;
-    String phone;
-    String email;
-    String dob;
-    String address;
-    double balance;
+    public int id = 0;
+//    public String userName;
+//    public String password;
+    public String name_first;
+    public String name_last;
+    public String phone;
+    public String email;
+    public String dob;
+    public String address;
+    public double balance;
+
+    @OneToMany
+    List<Purchase> purchases;
 
 
     public Member(int id, String name_first, String name_last, String phone, String email, String dob, String address, double balance) {
@@ -128,5 +136,13 @@ public class Member {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public List<Purchase> getPurchases() {
+        return purchases;
+    }
+
+    public void setPurchases(List<Purchase> purchases) {
+        this.purchases = purchases;
     }
 }

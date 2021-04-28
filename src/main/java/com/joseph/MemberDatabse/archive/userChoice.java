@@ -1,4 +1,4 @@
-package com.joseph.MemberDatabse;
+package com.joseph.MemberDatabse.archive;
 /**
  * Project: Member Database with Hibernate
  * Developed by: Yousef Emadi

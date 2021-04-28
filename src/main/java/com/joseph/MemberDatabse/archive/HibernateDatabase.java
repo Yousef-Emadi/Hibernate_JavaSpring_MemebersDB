@@ -1,9 +1,13 @@
-package com.joseph.MemberDatabse;
+package com.joseph.MemberDatabse.archive;
 
+
+import com.joseph.MemberDatabse.MemberDB_Application;
+import com.joseph.MemberDatabse.entity.Member;
+import com.joseph.MemberDatabse.repository.MemberRepository;
 
 import java.util.Optional;
 
-public class HibernateDatabase implements Database{
+public class HibernateDatabase implements Database {
 
     private MemberRepository memberRepository = MemberDB_Application.ctx.getBean(MemberRepository.class);
 

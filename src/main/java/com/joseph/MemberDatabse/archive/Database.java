@@ -1,5 +1,5 @@
-package com.joseph.MemberDatabse;
-import java.util.List;
+package com.joseph.MemberDatabse.archive;
+import com.joseph.MemberDatabse.entity.Member;
 
 /**
  * Project: Member Database with Hibernate

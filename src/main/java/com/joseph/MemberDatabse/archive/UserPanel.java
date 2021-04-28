@@ -1,4 +1,6 @@
-package com.joseph.MemberDatabse;
+package com.joseph.MemberDatabse.archive;
+
+import com.joseph.MemberDatabse.entity.Member;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -65,7 +67,15 @@ public class UserPanel {
         String lname = input.nextLine();
 
 
-        Member member = new Member(id, fname, lname, "(438) 654-7898", fname + "@gmail.com", "2000-01-01", "6500 Forest Hill", 0);
+        Member member = new Member(id,
+                fname,
+                lname,
+
+                "(438) 654-7898",
+                fname + "@gmail.com",
+                "2000-01-01",
+                "6500 Forest Hill",
+                0);
         return member;
     }
 
