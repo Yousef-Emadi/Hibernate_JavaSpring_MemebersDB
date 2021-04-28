@@ -32,8 +32,8 @@ public class Member {
             }
     )
     public int id = 0;
-//    public String userName;
-//    public String password;
+    public String userName;
+    public String password;
     public String name_first;
     public String name_last;
     public String phone;
@@ -45,9 +45,12 @@ public class Member {
     @OneToMany
     List<Purchase> purchases;
 
+    public Member() {
+    }
 
-    public Member(int id, String name_first, String name_last, String phone, String email, String dob, String address, double balance) {
-        this.id = id;
+    public Member(String userName, String password, String name_first, String name_last, String phone, String email, String dob, String address, double balance) {
+        this.userName = userName;
+        this.password = password;
         this.name_first = name_first;
         this.name_last = name_last;
         this.phone = phone;
@@ -55,10 +58,6 @@ public class Member {
         this.dob = dob;
         this.address = address;
         this.balance = balance;
-    }
-
-
-    public Member() {
     }
 
     @Override
@@ -80,6 +79,22 @@ public class Member {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName_first() {

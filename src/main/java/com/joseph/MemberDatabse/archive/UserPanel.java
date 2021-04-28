@@ -67,10 +67,11 @@ public class UserPanel {
         String lname = input.nextLine();
 
 
-        Member member = new Member(id,
+        Member member = new Member(
+                "temp_username",
+                "temp_password",
                 fname,
                 lname,
-
                 "(438) 654-7898",
                 fname + "@gmail.com",
                 "2000-01-01",
@@ -88,6 +89,7 @@ public class UserPanel {
         System.out.println(
                 "{ " + mmbr.id +
                 ": name: " + mmbr.name_first +" "+ mmbr.name_last +
+                "user name: " + mmbr.userName +
                 ", phone: " + mmbr.phone +
                 ", email: " + mmbr.email +
                 ", DOB: " + mmbr.dob +

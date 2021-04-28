@@ -25,6 +25,8 @@ public class SpringMvcMemberController {
         Member newMember = new Member();
         newMember.setName_first(name_first);
         newMember.setName_last(name_last);
+        newMember.setUserName("temp_username");
+        newMember.setPassword("temp_password");
         newMember.setPhone("(438)-5454-3232");
         newMember.setEmail("info@example.com");
         newMember.setDob("2010-01-01");
