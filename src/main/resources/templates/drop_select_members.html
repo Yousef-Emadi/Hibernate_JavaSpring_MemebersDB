@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>List of Members</title>
+</head>
+<body>
+
+
+ <form th:action="@{selectedMember}" method="GET" enctype="multipart/form-data">
+   <select name="memberId">
+     <option th:each="mmbr : ${myMembers}"
+             th:value="${mmbr.id}"
+             th:text="${mmbr.name_first}">mmbr.name_first</option>
+
+     <input type="submit" value="choose one of them "/>
+
+   </select>
+ </form>
+
+
+</body>
+</html>

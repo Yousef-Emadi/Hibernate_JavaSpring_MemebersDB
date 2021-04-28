@@ -45,9 +45,7 @@ public class SpringMvcMemberController {
         return "list_members";
     }
 
-
-
-    @GetMapping("/find")
+    @GetMapping("/findOneMember")
     public String findMember(int id, ModelMap model){
         Optional<Member> foundMember = memberRepository.findById(id);
 
@@ -73,4 +71,23 @@ public class SpringMvcMemberController {
         } else return "Failed!";
     }
 
+    /** Drop down list select will create in index.html*/
+    @GetMapping("/droplist")
+    public String dropListMembers(ModelMap modelMap){
+        modelMap.addAttribute("myMembers", memberRepository.findAll());
+
+        return "drop_select_members";
+    }
+
+    @GetMapping("/selectedMember")
+    @ResponseBody
+    public String selectedMember(int memberId) {
+        Optional<Member> foundMember = memberRepository.findById(memberId);
+
+        if (foundMember.isPresent()) {
+            Member memberObj = foundMember.get();
+            return "a member selected";
+        }else
+            return "member not found";
+    }
 }
