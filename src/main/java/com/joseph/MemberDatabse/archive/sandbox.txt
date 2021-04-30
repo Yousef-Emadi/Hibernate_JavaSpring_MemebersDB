@@ -1,0 +1,255 @@
+package com.joseph.MemberDatabse.archive;
+
+import java.sql.Time;
+import java.text.FieldPosition;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+class sandbox{}
+/*
+class Contact{
+    //Fields:
+    private String name;
+    private String phoneNumber;
+
+    //Methods:
+    /** Getters and Setters **/
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+}
+
+interface IcontactList{
+    public void addContact(Contact contact);
+    public Contact findByName(String name);
+    public Contact findByNumber(String number);
+    public void editContact(String number, Contact newContact);
+    public void deleteContact(Contact contact);
+}
+
+class contactListClass implements IcontactList{
+    //Fields:
+    private List<Contact> contactList = new ArrayList<Contact>();
+
+    //Methods:
+
+    @Override
+    public void addContact(Contact contact) {
+        contactList.add(contact);
+    }
+
+    @Override
+    public Contact findByName(String name) {
+        for (Contact contact: contactList
+             ) {
+            if (contact.getName() == name) return contact;
+        }
+        return null;
+    }
+
+    @Override
+    public Contact findByNumber(String number) {
+        for (Contact contact: contactList
+        ) {
+            if (contact.getPhoneNumber() == number) return contact;
+        }
+        return null;
+    }
+
+    @Override
+    public void editContact(String number, Contact newContact) {
+        Contact oldContact = findByNumber(number);
+        oldContact.setName(newContact.getName());
+        oldContact.setPhoneNumber(newContact.getPhoneNumber());
+    }
+
+    @Override
+    public void deleteContact(Contact contact) {
+        contactList.remove(contact);
+    }
+}
+
+
+class View {
+    //Fields:
+    Scanner input = new Scanner(System.in);
+
+    //Methods:
+    public int getOption(){
+        System.out.println("select your command");
+        System.out.println("1.add / 2.find by name / 3.find by number / 4.edit contact / 5. delete contact");
+        int command = input.nextInt();
+        return command;
+    }
+
+    public Contact getNewContact(){
+        System.out.println("enter new contact name");
+        String name = input.nextLine();
+        System.out.println("enter new contact number");
+        String number = input.nextLine();
+        Contact newContact = new Contact();
+        newContact.setName(name);
+        newContact.setPhoneNumber(number);
+        return newContact;
+    }
+
+    public String getName(){
+        System.out.println("enter name to search");
+        String name = input.nextLine();
+        return name;
+    }
+
+    public String getNumber(){
+        System.out.println("enter phone number to search");
+        String number = input.nextLine();
+        return number;
+    }
+
+    public String showContact(Contact contact){
+        return contact.getName() + " " + contact.getPhoneNumber();
+    }
+
+}
+
+class Controller{
+    //Fields:
+    View view = new View();
+    IcontactList contactList = new contactListClass();
+
+    //Methods:
+    void optionListener(){
+        int command = view.getOption();
+        switch (command){
+            case 1 -> doAdd();
+            case 2 -> doFindByName();
+            case 3 -> doFindByNumber();
+            case 4 -> doEdit();
+            case 5 -> doRemove();
+        }
+    }
+
+    private void doAdd() {
+        contactList.addContact(view.getNewContact());
+    }
+
+    private void doFindByName() {
+        view.showContact(contactList.findByName(view.getName()));
+    }
+
+    private void doFindByNumber() {
+        view.showContact(contactList.findByNumber(view.getNumber()));
+    }
+
+    private void doEdit() {
+        contactList.editContact(view.getNumber(), view.getNewContact());
+    }
+
+    private void doRemove() {
+        //find contact by name and then delete
+        contactList.deleteContact(contactList.findByName(view.getName()));
+    }
+
+
+}
+
+class PhoneBookApp {
+    Controller controller = new Controller();
+    View view = new View();
+
+    public static void main(String[] args) {
+        while (true){
+            controller.optionListener();
+        }
+    }
+
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+/*
+
+class MovingOperation{
+    //States
+
+    //Behaviours
+}
+
+class Stage{
+    //States:
+    String stage_name;
+    Time start_time;
+    Time end_time;
+    int performance_rating;
+
+    //Behaviours:
+
+}
+
+class MoverTeam{
+    //States
+    List<Mover> mover;
+    int team_performance_rating;
+
+
+}
+
+class Mover{
+
+    //State
+    String name;
+    int rating;
+    int teamNumber;
+
+    //Behaviours
+    void transit_from_the_office() { }
+    void set_stage_start_time(){}
+    void set_stage_end_time(){}
+    void get_team_performance_rating(){}
+
+}
+
+class Coordinators{
+    //States:
+
+    //Behaviours:
+    void assign_mover_to_team(){}
+    void get_start_start_time(){}
+    void get_end_start_time(){}
+    void get_team_rating(){}
+    void get_mover_rating(){}
+}
+
+class Clients {
+
+    //Behaviours:
+    void get_stage_name(){}
+    void get_team_rating(){}
+    void set_stage_team_performance_rating(){}
+    void set_mover_rating(){}
+}
+
+*/
+
