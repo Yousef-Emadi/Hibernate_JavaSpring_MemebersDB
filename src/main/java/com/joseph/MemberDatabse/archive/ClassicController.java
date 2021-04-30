@@ -1,4 +1,4 @@
-package com.joseph.MemberDatabse.controller;
+package com.joseph.MemberDatabse.archive;
 
 import com.joseph.MemberDatabse.archive.Database;
 import com.joseph.MemberDatabse.entity.Member;

@@ -4,7 +4,7 @@ package com.joseph.MemberDatabse;
 import com.joseph.MemberDatabse.archive.Database;
 import com.joseph.MemberDatabse.archive.HibernateDatabase;
 import com.joseph.MemberDatabse.archive.UserPanel;
-import com.joseph.MemberDatabse.controller.ClassicController;
+import com.joseph.MemberDatabse.archive.ClassicController;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
