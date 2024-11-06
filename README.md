@@ -1,8 +1,7 @@
 # JavaSpring mini project MembersDataBase
 ## Developed by: Yousef emadi
-## Date: APR 2021
+## First Version: APR 2021
 ## Course: Java III
-## By: Dr. Talib
 
 an application which: a Controller class manage all interaction between UserPanel class and Database class. <br/>
 everuthing in writing and reading inside a file. <br/>
